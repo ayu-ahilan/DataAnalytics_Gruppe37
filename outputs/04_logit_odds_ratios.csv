@@ -1,0 +1,16 @@
+,Odds Ratio,KI 2.5%,KI 97.5%,p-Wert
+Intercept,0.0116,0.0087,0.0153,0.0
+"C(region, Treatment('Deutschschweiz'))[T.Romandie]",1.7267,1.617,1.8439,0.0
+"C(zugtyp_gruppe, Treatment('S-Bahn'))[T.Andere]",2.7291,2.2728,3.2769,0.0
+"C(zugtyp_gruppe, Treatment('S-Bahn'))[T.InterCity]",2.0265,1.9041,2.1567,0.0
+"C(zugtyp_gruppe, Treatment('S-Bahn'))[T.InterRegio]",1.3323,1.2605,1.4082,0.0
+"C(zugtyp_gruppe, Treatment('S-Bahn'))[T.International]",6.7767,6.1432,7.4754,0.0
+"C(zugtyp_gruppe, Treatment('S-Bahn'))[T.Regio]",1.1678,1.0752,1.2683,0.0002
+"C(zugtyp_gruppe, Treatment('S-Bahn'))[T.RegioExpress]",1.1147,1.0315,1.2045,0.0061
+stosszeit,1.6716,1.5937,1.7532,0.0
+"C(region, Treatment('Deutschschweiz'))[T.Romandie]:stosszeit",0.5959,0.5394,0.6584,0.0
+wochenende,0.7687,0.7323,0.8068,0.0
+niederschlag,1.2077,1.1645,1.2525,0.0
+temperatur,0.9722,0.9668,0.9775,0.0
+wind,1.025,1.0219,1.0282,0.0
+log_station_groesse,1.196,1.1585,1.2346,0.0

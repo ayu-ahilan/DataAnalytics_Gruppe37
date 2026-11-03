@@ -1,0 +1,10 @@
+pandas>=2.0
+numpy
+requests
+matplotlib
+seaborn
+scikit-learn>=1.2
+scipy
+statsmodels
+folium
+jupyter

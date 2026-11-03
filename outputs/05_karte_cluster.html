@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7f0b6ec866f83640333e4de7b1b96ba5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_7f0b6ec866f83640333e4de7b1b96ba5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7f0b6ec866f83640333e4de7b1b96ba5 = L.map(
+                "map_7f0b6ec866f83640333e4de7b1b96ba5",
+                {
+                    center: [46.8, 8.2],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7bcda63e10e344ad65f733861872ee12 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_7bcda63e10e344ad65f733861872ee12.addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            var circle_marker_362e826d884513a5fb6215735eec8859 = L.circleMarker(
+                [47.54741205505, 7.58956279016],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_362e826d884513a5fb6215735eec8859.bindTooltip(
+                `<div>
+                     Basel SBB – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fc4fb8beee30ab0df5bc780c984fd4e9 = L.circleMarker(
+                [47.5335912119, 7.64789442691],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_fc4fb8beee30ab0df5bc780c984fd4e9.bindTooltip(
+                `<div>
+                     Muttenz – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae50527d18c7effc0c5cf2eef14eb9d2 = L.circleMarker(
+                [47.52266863171, 7.69081730427],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_ae50527d18c7effc0c5cf2eef14eb9d2.bindTooltip(
+                `<div>
+                     Pratteln – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_910c527e13be17c31c2962db3b1a510f = L.circleMarker(
+                [47.48446117213, 7.7313674807],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_910c527e13be17c31c2962db3b1a510f.bindTooltip(
+                `<div>
+                     Liestal – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2269b07e50e7ef895a65e34eb4f100a = L.circleMarker(
+                [47.20419250288, 7.54268921098],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_b2269b07e50e7ef895a65e34eb4f100a.bindTooltip(
+                `<div>
+                     Solothurn – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dfde2d67e99003b5ac480549e0219ddb = L.circleMarker(
+                [47.27040173433, 7.69481806732],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_dfde2d67e99003b5ac480549e0219ddb.bindTooltip(
+                `<div>
+                     Niederbipp – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63ecf5a912cb5d5e527d9303b5342240 = L.circleMarker(
+                [47.28503510558, 7.709870322],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_63ecf5a912cb5d5e527d9303b5342240.bindTooltip(
+                `<div>
+                     Oensingen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_558892a3cdf3b9352eb0316e9a4ee4c6 = L.circleMarker(
+                [47.35193475927, 7.90769964791],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_558892a3cdf3b9352eb0316e9a4ee4c6.bindTooltip(
+                `<div>
+                     Olten – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a982f237bb7997e7ba131eddb01b97b5 = L.circleMarker(
+                [47.48085983498, 8.20884455349],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_a982f237bb7997e7ba131eddb01b97b5.bindTooltip(
+                `<div>
+                     Brugg AG – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1324ab0db9d63f430ff2e986c78ef834 = L.circleMarker(
+                [46.21021289876, 6.14245159514],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_1324ab0db9d63f430ff2e986c78ef834.bindTooltip(
+                `<div>
+                     Genève – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de27f64b68b0ad36c1d2fa35eb6240a0 = L.circleMarker(
+                [46.51110119787, 6.49396950064],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_de27f64b68b0ad36c1d2fa35eb6240a0.bindTooltip(
+                `<div>
+                     Morges – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c31c6aa61d3d85239a874aa3d541ce70 = L.circleMarker(
+                [46.5370424669, 6.57893533809],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_c31c6aa61d3d85239a874aa3d541ce70.bindTooltip(
+                `<div>
+                     Renens VD – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8aa28e8d766cb4f853006644035ed995 = L.circleMarker(
+                [46.51679183546, 6.6290923032],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_8aa28e8d766cb4f853006644035ed995.bindTooltip(
+                `<div>
+                     Lausanne – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e20e554caa2cd520d0914f92330c5f8e = L.circleMarker(
+                [46.46300181066, 6.84344559824],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_e20e554caa2cd520d0914f92330c5f8e.bindTooltip(
+                `<div>
+                     Vevey – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c434d8c8f3d04ecc1a04c38f840a9c5f = L.circleMarker(
+                [46.43588434112, 6.91044012131],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_c434d8c8f3d04ecc1a04c38f840a9c5f.bindTooltip(
+                `<div>
+                     Montreux – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_115956f9250fd7ce81d116bf594258fa = L.circleMarker(
+                [46.3168554186, 6.96368321186],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_115956f9250fd7ce81d116bf594258fa.bindTooltip(
+                `<div>
+                     Aigle – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97cc54abf8250de211b204558cdc182e = L.circleMarker(
+                [46.10583120717, 7.07912412849],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_97cc54abf8250de211b204558cdc182e.bindTooltip(
+                `<div>
+                     Martigny – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a3d164073739ec842ed07ceef26af64d = L.circleMarker(
+                [46.29402913539, 7.88146547575],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_a3d164073739ec842ed07ceef26af64d.bindTooltip(
+                `<div>
+                     Visp – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bc7b5c5de9f4a287296f2cf8937f3ca6 = L.circleMarker(
+                [47.28805253539, 7.94311767398],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_bc7b5c5de9f4a287296f2cf8937f3ca6.bindTooltip(
+                `<div>
+                     Zofingen – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_20463bfa1da60c6376d90c2f2d31eef1 = L.circleMarker(
+                [47.07060149967, 8.28256536801],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_20463bfa1da60c6376d90c2f2d31eef1.bindTooltip(
+                `<div>
+                     Emmenbrücke – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9cd6cae6d63eff0d7fcd3cc47eceb7a9 = L.circleMarker(
+                [47.37163547418, 8.08229064021],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_9cd6cae6d63eff0d7fcd3cc47eceb7a9.bindTooltip(
+                `<div>
+                     Suhr – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a554f4a11c715490a3937bc7ab6a15c2 = L.circleMarker(
+                [47.39135951417, 8.0512737187],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_a554f4a11c715490a3937bc7ab6a15c2.bindTooltip(
+                `<div>
+                     Aarau – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bdf7ffde09739ad29a9c0fce2f2ac1df = L.circleMarker(
+                [47.39119975544, 8.17039288935],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_bdf7ffde09739ad29a9c0fce2f2ac1df.bindTooltip(
+                `<div>
+                     Lenzburg – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_153f039dd862f286882e197f2567610b = L.circleMarker(
+                [47.14176416722, 8.4304952639],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_153f039dd862f286882e197f2567610b.bindTooltip(
+                `<div>
+                     Rotkreuz – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a542bb9dcbadf719078cbd96b99195d6 = L.circleMarker(
+                [47.17370697768, 8.51504934096],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_a542bb9dcbadf719078cbd96b99195d6.bindTooltip(
+                `<div>
+                     Zug – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_41c902470632a44bead03788e2a00be9 = L.circleMarker(
+                [47.37817667422, 8.5402123491],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_41c902470632a44bead03788e2a00be9.bindTooltip(
+                `<div>
+                     Zürich HB – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c1436e1ebe75cbb4836774c6d0e9cf49 = L.circleMarker(
+                [47.39148307308, 8.48896264996],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_c1436e1ebe75cbb4836774c6d0e9cf49.bindTooltip(
+                `<div>
+                     Zürich Altstetten – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_65da4bf932aff0e37e4e8c5206e7de4e = L.circleMarker(
+                [47.36660976671, 8.54848908845],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_65da4bf932aff0e37e4e8c5206e7de4e.bindTooltip(
+                `<div>
+                     Zürich Stadelhofen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_82b14791ed689d984536c5a0ff128d7a = L.circleMarker(
+                [47.4115300412, 8.54413990999],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_82b14791ed689d984536c5a0ff128d7a.bindTooltip(
+                `<div>
+                     Zürich Oerlikon – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1913b1ae77600bdcf979b8c7b7fe53ce = L.circleMarker(
+                [47.36409881802, 8.53082057475],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_1913b1ae77600bdcf979b8c7b7fe53ce.bindTooltip(
+                `<div>
+                     Zürich Enge – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bef98552c072ff4bc64d33c4261a47af = L.circleMarker(
+                [47.37147722842, 8.52348543973],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_bef98552c072ff4bc64d33c4261a47af.bindTooltip(
+                `<div>
+                     Zürich Wiedikon – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0ac42e7c394e3313bb580b45ceda724 = L.circleMarker(
+                [47.4503856299, 8.56240182048],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_c0ac42e7c394e3313bb580b45ceda724.bindTooltip(
+                `<div>
+                     Zürich Flughafen – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c907134b059b5d0605d4ab5083173c6a = L.circleMarker(
+                [47.3851978915, 8.51712620147],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_c907134b059b5d0605d4ab5083173c6a.bindTooltip(
+                `<div>
+                     Zürich Hardbrücke – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_03b67448c8a3dc2d862305f822eee9c7 = L.circleMarker(
+                [47.37223834348, 8.53172495488],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_03b67448c8a3dc2d862305f822eee9c7.bindTooltip(
+                `<div>
+                     Zürich Selnau – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ce83657b1bfc8a77c6eb03b9b05bdb0c = L.circleMarker(
+                [47.22488721232, 8.8167448876],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_ce83657b1bfc8a77c6eb03b9b05bdb0c.bindTooltip(
+                `<div>
+                     Rapperswil SG – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_deaa8ea0910438625d3f0c072d363f19 = L.circleMarker(
+                [47.31803163151, 8.79228973378],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_deaa8ea0910438625d3f0c072d363f19.bindTooltip(
+                `<div>
+                     Wetzikon ZH – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fc540d2a05110a6e026a3dc69414b78a = L.circleMarker(
+                [47.35036900902, 8.71870915949],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_fc540d2a05110a6e026a3dc69414b78a.bindTooltip(
+                `<div>
+                     Uster – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_859562553364dcc9cd468d36b435edcb = L.circleMarker(
+                [47.41272308615, 8.59192819967],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_859562553364dcc9cd468d36b435edcb.bindTooltip(
+                `<div>
+                     Wallisellen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a951c6a19b6bdb83e5cce1e16d8a7013 = L.circleMarker(
+                [47.39721540796, 8.59614477854],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_a951c6a19b6bdb83e5cce1e16d8a7013.bindTooltip(
+                `<div>
+                     Stettbach – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_61fb2177e47d2cbf222e415689f609b5 = L.circleMarker(
+                [47.29598140718, 8.56476944907],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_61fb2177e47d2cbf222e415689f609b5.bindTooltip(
+                `<div>
+                     Thalwil – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5d9635c0048afd195aec8eeae1acc69b = L.circleMarker(
+                [47.22930727742, 8.67521627099],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_5d9635c0048afd195aec8eeae1acc69b.bindTooltip(
+                `<div>
+                     Wädenswil – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_28698cd846ae8394c6111d34a467acc1 = L.circleMarker(
+                [47.20299744313, 8.77812981895],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_28698cd846ae8394c6111d34a467acc1.bindTooltip(
+                `<div>
+                     Pfäffikon SZ – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c976608207d2391976d19323cba7e0a0 = L.circleMarker(
+                [47.13615591159, 9.06005166998],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_c976608207d2391976d19323cba7e0a0.bindTooltip(
+                `<div>
+                     Ziegelbrücke – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bfd9631994f4402dcd13871915f14d70 = L.circleMarker(
+                [47.15637863864, 8.72271471268],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_bfd9631994f4402dcd13871915f14d70.bindTooltip(
+                `<div>
+                     Biberbrugg – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2ee70faeeb89f3b29620fba26d0dfabc = L.circleMarker(
+                [47.42581205991, 8.68667914444],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_2ee70faeeb89f3b29620fba26d0dfabc.bindTooltip(
+                `<div>
+                     Effretikon – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5a871ae102ea8f8b04e55fba95e4e570 = L.circleMarker(
+                [47.42020206401, 8.61927640456],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_5a871ae102ea8f8b04e55fba95e4e570.bindTooltip(
+                `<div>
+                     Dietlikon – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0ca531fec1996290aef3512af8d5c7e4 = L.circleMarker(
+                [47.52394992292, 8.53620919891],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_0ca531fec1996290aef3512af8d5c7e4.bindTooltip(
+                `<div>
+                     Bülach – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8283ebc3394abaf38cef3785ba992ecd = L.circleMarker(
+                [47.68313341197, 8.62493454562],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_8283ebc3394abaf38cef3785ba992ecd.bindTooltip(
+                `<div>
+                     Neuhausen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e75f035eb15a19ce0d97fd2f1b5d9ab8 = L.circleMarker(
+                [47.69828151482, 8.63275578013],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_e75f035eb15a19ce0d97fd2f1b5d9ab8.bindTooltip(
+                `<div>
+                     Schaffhausen – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_97a9450bc7eddacc9505405e6a00caa5 = L.circleMarker(
+                [47.49175731953, 8.25345864571],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_97a9450bc7eddacc9505405e6a00caa5.bindTooltip(
+                `<div>
+                     Turgi – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_528967cb33b09ec40d63337d89d6d876 = L.circleMarker(
+                [47.47642428462, 8.30770947404],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_528967cb33b09ec40d63337d89d6d876.bindTooltip(
+                `<div>
+                     Baden – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70ec80f4c2884e9689b0960947e93dfa = L.circleMarker(
+                [47.45963817593, 8.31600617145],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_70ec80f4c2884e9689b0960947e93dfa.bindTooltip(
+                `<div>
+                     Wettingen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58d38130f489c310a4cc9f8b59eeb612 = L.circleMarker(
+                [47.40578380657, 8.40498818789],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_58d38130f489c310a4cc9f8b59eeb612.bindTooltip(
+                `<div>
+                     Dietikon – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be090fef08b9ae988296b8d5b6068460 = L.circleMarker(
+                [46.54276359358, 6.83787527681],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_be090fef08b9ae988296b8d5b6068460.bindTooltip(
+                `<div>
+                     Palézieux – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_958006757ae241e145e8a7e5e41e093b = L.circleMarker(
+                [46.80314817218, 7.15104688334],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_958006757ae241e145e8a7e5e41e093b.bindTooltip(
+                `<div>
+                     Fribourg/Freiburg – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_84c669147748a2b876e0054ad1c25801 = L.circleMarker(
+                [46.94420983292, 7.40611755507],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_84c669147748a2b876e0054ad1c25801.bindTooltip(
+                `<div>
+                     Bern Europaplatz – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70e95be8bc3266a9fb6c03950e2d8ddd = L.circleMarker(
+                [46.78154518698, 6.64094400151],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_70e95be8bc3266a9fb6c03950e2d8ddd.bindTooltip(
+                `<div>
+                     Yverdon-les-Bains – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_877f4aee5ff8881c3125a938d5235c95 = L.circleMarker(
+                [46.99672679256, 6.93570169412],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_877f4aee5ff8881c3125a938d5235c95.bindTooltip(
+                `<div>
+                     Neuchâtel – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf40243e2e7b448aa5c786b146789199 = L.circleMarker(
+                [47.13289787086, 7.24291060323],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_cf40243e2e7b448aa5c786b146789199.bindTooltip(
+                `<div>
+                     Biel/Bienne – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e811be0d5a97bef0eedb15729e321f9 = L.circleMarker(
+                [47.00182593544, 7.46291119582],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_6e811be0d5a97bef0eedb15729e321f9.bindTooltip(
+                `<div>
+                     Zollikofen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30a4ace1b32899134b1e39bee40fdbda = L.circleMarker(
+                [47.07632350393, 7.30630154849],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_30a4ace1b32899134b1e39bee40fdbda.bindTooltip(
+                `<div>
+                     Lyss – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e4c7d2b619f2f876da99cc2a9f76dccb = L.circleMarker(
+                [46.999831409, 7.09956100561],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_e4c7d2b619f2f876da99cc2a9f76dccb.bindTooltip(
+                `<div>
+                     Ins – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_80c96972909f6cc2ff727a94d61b2017 = L.circleMarker(
+                [47.05017782809, 8.31018320694],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_80c96972909f6cc2ff727a94d61b2017.bindTooltip(
+                `<div>
+                     Luzern – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_848813743fe5899361b4055826e985d0 = L.circleMarker(
+                [47.04904488341, 8.54944630067],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_848813743fe5899361b4055826e985d0.bindTooltip(
+                `<div>
+                     Arth-Goldau – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aefc91f80ba5918dbac113a1bf9216c9 = L.circleMarker(
+                [46.19543179221, 9.02951851227],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_aefc91f80ba5918dbac113a1bf9216c9.bindTooltip(
+                `<div>
+                     Bellinzona – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a92f5676cc874f19e02e25215c3ed943 = L.circleMarker(
+                [46.17381273154, 9.00360008896],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_a92f5676cc874f19e02e25215c3ed943.bindTooltip(
+                `<div>
+                     Giubiasco – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_470845f3c876dba20732190e689ebcf7 = L.circleMarker(
+                [46.00550054991, 8.94699530851],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_470845f3c876dba20732190e689ebcf7.bindTooltip(
+                `<div>
+                     Lugano – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5832350a2a251d83463c1533bdde52e1 = L.circleMarker(
+                [45.86910860803, 8.97861091962],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_5832350a2a251d83463c1533bdde52e1.bindTooltip(
+                `<div>
+                     Mendrisio – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_31fafdf2a0020fbe90c1b1d0bcd62618 = L.circleMarker(
+                [46.15261998874, 8.94169889979],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_31fafdf2a0020fbe90c1b1d0bcd62618.bindTooltip(
+                `<div>
+                     Cadenazzo – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3742f97c83e11508bb693dcda912d1c = L.circleMarker(
+                [47.50033381047, 8.72382105541],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_b3742f97c83e11508bb693dcda912d1c.bindTooltip(
+                `<div>
+                     Winterthur – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3204e12777ff35d515fc3fbce5618470 = L.circleMarker(
+                [47.49875471416, 8.75105520262],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_3204e12777ff35d515fc3fbce5618470.bindTooltip(
+                `<div>
+                     Winterthur Grüze – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6315b6ca00bcece4cfe0def081ffa042 = L.circleMarker(
+                [47.5079223325, 8.76038919617],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_6315b6ca00bcece4cfe0def081ffa042.bindTooltip(
+                `<div>
+                     Oberwinterthur – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9f3bf4571cff3abc092d9b0e28ca371a = L.circleMarker(
+                [47.55816340457, 8.89655967341],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_9f3bf4571cff3abc092d9b0e28ca371a.bindTooltip(
+                `<div>
+                     Frauenfeld – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e127094b8f7948f3ecbe46a7bf291a7d = L.circleMarker(
+                [47.56622426323, 9.10636822199],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_e127094b8f7948f3ecbe46a7bf291a7d.bindTooltip(
+                `<div>
+                     Weinfelden – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8fa28e40d7bf547d32bf662647ace256 = L.circleMarker(
+                [47.56552286487, 9.37937129226],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_8fa28e40d7bf547d32bf662647ace256.bindTooltip(
+                `<div>
+                     Romanshorn – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d8aa777462afe2af0956113afd87b1c7 = L.circleMarker(
+                [47.65255276654, 9.16908041834],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_d8aa777462afe2af0956113afd87b1c7.bindTooltip(
+                `<div>
+                     Kreuzlingen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ecd757fa5a9e48a2f4bb02208dc684ac = L.circleMarker(
+                [47.46241324274, 9.04099305047],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_ecd757fa5a9e48a2f4bb02208dc684ac.bindTooltip(
+                `<div>
+                     Wil SG – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3eba311684884eacba7632add1a5b149 = L.circleMarker(
+                [47.41183157855, 9.25305069333],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_3eba311684884eacba7632add1a5b149.bindTooltip(
+                `<div>
+                     Gossau SG – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5ab6e9db9f323e56178462f949995473 = L.circleMarker(
+                [47.39016520866, 9.27681223562],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_5ab6e9db9f323e56178462f949995473.bindTooltip(
+                `<div>
+                     Herisau – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b1ac49b574d6f856a75cbc673fed9a7d = L.circleMarker(
+                [47.4231789499, 9.36989666272],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_b1ac49b574d6f856a75cbc673fed9a7d.bindTooltip(
+                `<div>
+                     St. Gallen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_36edf9cf3700977a836ae75d81368064 = L.circleMarker(
+                [47.43454038247, 9.39344380222],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_36edf9cf3700977a836ae75d81368064.bindTooltip(
+                `<div>
+                     St. Gallen St. Fiden – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9ef08bd0c8d26cb6aa3305c5e887a711 = L.circleMarker(
+                [47.47800197543, 9.5051412874],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_9ef08bd0c8d26cb6aa3305c5e887a711.bindTooltip(
+                `<div>
+                     Rorschach – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7170da2da7d8291e64dd1c1f0d58bfd6 = L.circleMarker(
+                [47.45321599373, 9.63826192024],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_7170da2da7d8291e64dd1c1f0d58bfd6.bindTooltip(
+                `<div>
+                     St. Margrethen SG – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_368c27edb29a4487f9f412d177a83ab9 = L.circleMarker(
+                [46.9488322905, 7.43913088992],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_368c27edb29a4487f9f412d177a83ab9.bindTooltip(
+                `<div>
+                     Bern – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e25d40d0d830df56a287b2b2cacde61 = L.circleMarker(
+                [46.75485273059, 7.62960582867],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_2e25d40d0d830df56a287b2b2cacde61.bindTooltip(
+                `<div>
+                     Thun – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_800deb8fa9877f7386e35772b4d8134b = L.circleMarker(
+                [46.68639566835, 7.6801030578],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_800deb8fa9877f7386e35772b4d8134b.bindTooltip(
+                `<div>
+                     Spiez – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_005d43d0632d75faedbbccc8b04c3131 = L.circleMarker(
+                [47.06070072639, 7.62169447355],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_005d43d0632d75faedbbccc8b04c3131.bindTooltip(
+                `<div>
+                     Burgdorf – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5bfca8c2394073a92e823f8934665185 = L.circleMarker(
+                [46.97883999852, 7.45763000019],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_5bfca8c2394073a92e823f8934665185.bindTooltip(
+                `<div>
+                     Worblaufen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a845e4053f39eebd9dc401bddaf2185d = L.circleMarker(
+                [47.04760999399, 7.50777999617],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_a845e4053f39eebd9dc401bddaf2185d.bindTooltip(
+                `<div>
+                     Jegenstorf – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5bf40c58c86c44b9f3878dd57734ebc = L.circleMarker(
+                [47.21730287149, 7.78471513555],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_f5bf40c58c86c44b9f3878dd57734ebc.bindTooltip(
+                `<div>
+                     Langenthal – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_651a6aeb9d77974254ce157a2e2bda46 = L.circleMarker(
+                [46.88070241891, 7.6213670273],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_651a6aeb9d77974254ce157a2e2bda46.bindTooltip(
+                `<div>
+                     Konolfingen – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d9b1d005669399a282f30b503404f248 = L.circleMarker(
+                [46.85308416276, 9.52893773304],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_d9b1d005669399a282f30b503404f248.bindTooltip(
+                `<div>
+                     Chur – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e98e22805af53af93b6251b8cf2eda82 = L.circleMarker(
+                [46.96744042836, 9.55404469208],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_e98e22805af53af93b6251b8cf2eda82.bindTooltip(
+                `<div>
+                     Landquart – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d45688807298ce6e0f5091d350ef67d5 = L.circleMarker(
+                [47.04482351441, 9.44626047466],
+                {"bubblingMouseEvents": true, "color": "#2a6f97", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2a6f97", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_d45688807298ce6e0f5091d350ef67d5.bindTooltip(
+                `<div>
+                     Sargans – Cluster 0
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_160515112d3cf942d25cbb3c7c972fc9 = L.circleMarker(
+                [46.18594529978, 6.12494699563],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_160515112d3cf942d25cbb3c7c972fc9.bindTooltip(
+                `<div>
+                     Lancy-Pont-Rouge – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1721cae14d653f9907d678e420f0f754 = L.circleMarker(
+                [46.96782576596, 7.46547780088],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_1721cae14d653f9907d678e420f0f754.bindTooltip(
+                `<div>
+                     Bern Wankdorf – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_11c7442750e92c7a151e478eee3bdbcf = L.circleMarker(
+                [46.1921933443, 6.15349872414],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_11c7442750e92c7a151e478eee3bdbcf.bindTooltip(
+                `<div>
+                     Genève-Champel – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4834c08ef68dd334a4670b73629d89d9 = L.circleMarker(
+                [46.20144540652, 6.16656958816],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_4834c08ef68dd334a4670b73629d89d9.bindTooltip(
+                `<div>
+                     Genève-Eaux-Vives – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91e494574e95a81c7ae15bcadb0bc203 = L.circleMarker(
+                [46.196600169, 6.19733346412],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_91e494574e95a81c7ae15bcadb0bc203.bindTooltip(
+                `<div>
+                     Chêne-Bourg – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e0a803a13013c06d9a1f8e0447307491 = L.circleMarker(
+                [46.17433286791, 6.12936213667],
+                {"bubblingMouseEvents": true, "color": "#e76f51", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e76f51", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_7f0b6ec866f83640333e4de7b1b96ba5);
+        
+    
+            circle_marker_e0a803a13013c06d9a1f8e0447307491.bindTooltip(
+                `<div>
+                     Lancy-Bachet – Cluster 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

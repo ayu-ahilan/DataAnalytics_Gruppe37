@@ -1,0 +1,5 @@
+Gruppe,n_train,n_test,Anteil verspätet (Test),Accuracy,Precision,Recall,F1,ROC-AUC
+Deutschschweiz,223517,97944,0.051,0.826,0.115,0.36,0.174,0.679
+Romandie,43995,19541,0.079,0.742,0.133,0.41,0.2,0.649
+Stosszeit,73605,21178,0.071,0.889,0.109,0.08,0.092,0.583
+Randzeit,204419,100933,0.052,0.773,0.114,0.492,0.185,0.698
