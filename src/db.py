@@ -1,4 +1,4 @@
-"""SQLite-Datenbank: Verbindung, Schema und Lade-Protokoll."""
+"""SQLite database: connection, schema and load log."""
 import sqlite3
 from datetime import datetime
 from pathlib import Path
@@ -6,55 +6,55 @@ from pathlib import Path
 from .config import DB_PATH
 
 SCHEMA = """
-CREATE TABLE IF NOT EXISTS halte (
-    betriebstag        TEXT,     -- YYYY-MM-DD
-    fahrt_id           TEXT,     -- FAHRT_BEZEICHNER
-    betreiber          TEXT,     -- BETREIBER_ABK (z.B. SBB, BLS, SOB)
-    linie              TEXT,     -- LINIEN_TEXT (z.B. IC1, S12)
-    zugtyp             TEXT,     -- VERKEHRSMITTEL_TEXT (z.B. IC, IR, S, RE)
-    bpuic              INTEGER,  -- 7-stellige Haltestellennummer
-    haltestelle        TEXT,
-    ankunft_soll       TEXT,
-    ankunft_ist        TEXT,
-    an_status          TEXT,     -- REAL / ESTIMATED / FORECAST / UNKNOWN
-    abfahrt_soll       TEXT,
-    abfahrt_ist        TEXT,
-    ab_status          TEXT,
-    an_delay_min       REAL,     -- Ankunftsverspaetung in Minuten
-    ab_delay_min       REAL,     -- Abfahrtsverspaetung in Minuten
-    faellt_aus         INTEGER,  -- 1 = Halt faellt aus
-    zusatzfahrt        INTEGER   -- 1 = Zusatzfahrt
+CREATE TABLE IF NOT EXISTS stops (
+    operating_day      TEXT,     -- YYYY-MM-DD
+    trip_id            TEXT,     -- FAHRT_BEZEICHNER
+    operator           TEXT,     -- BETREIBER_ABK (e.g. SBB, BLS, SOB)
+    line               TEXT,     -- LINIEN_TEXT (e.g. IC1, S12)
+    train_type         TEXT,     -- VERKEHRSMITTEL_TEXT (e.g. IC, IR, S, RE)
+    bpuic              INTEGER,  -- 7-digit station number
+    stop_name          TEXT,
+    arr_scheduled      TEXT,
+    arr_actual         TEXT,
+    arr_status         TEXT,     -- REAL / ESTIMATED / FORECAST / UNKNOWN
+    dep_scheduled      TEXT,
+    dep_actual         TEXT,
+    dep_status         TEXT,
+    arr_delay_min      REAL,     -- arrival delay in minutes
+    dep_delay_min      REAL,     -- departure delay in minutes
+    cancelled          INTEGER,  -- 1 = stop cancelled
+    extra_trip         INTEGER   -- 1 = additional trip
 );
-CREATE INDEX IF NOT EXISTS idx_halte_bpuic ON halte(bpuic);
-CREATE INDEX IF NOT EXISTS idx_halte_tag   ON halte(betriebstag);
+CREATE INDEX IF NOT EXISTS idx_stops_bpuic ON stops(bpuic);
+CREATE INDEX IF NOT EXISTS idx_stops_day   ON stops(operating_day);
 
-CREATE TABLE IF NOT EXISTS stationen (
-    bpuic      INTEGER PRIMARY KEY,
-    name       TEXT,
-    lat        REAL,
-    lon        REAL,
-    kanton     TEXT,
-    gemeinde   TEXT,
-    region     TEXT      -- Deutschschweiz / Romandie / Tessin / Unbekannt
+CREATE TABLE IF NOT EXISTS stations (
+    bpuic         INTEGER PRIMARY KEY,
+    name          TEXT,
+    lat           REAL,
+    lon           REAL,
+    canton        TEXT,
+    municipality  TEXT,
+    region        TEXT      -- German-speaking / Romandy / Ticino / Unknown
 );
 
-CREATE TABLE IF NOT EXISTS wetter (
+CREATE TABLE IF NOT EXISTS weather (
     bpuic          INTEGER,
-    zeit           TEXT,     -- lokale Stunde 'YYYY-MM-DD HH:00'
-    temperatur     REAL,     -- Grad C
-    niederschlag   REAL,     -- mm in der Stunde
-    schneefall     REAL,     -- cm in der Stunde
+    time           TEXT,     -- local hour 'YYYY-MM-DD HH:00'
+    temperature    REAL,     -- degrees C
+    precipitation  REAL,     -- mm in the hour
+    snowfall       REAL,     -- cm in the hour
     wind           REAL,     -- km/h
-    PRIMARY KEY (bpuic, zeit)
+    PRIMARY KEY (bpuic, time)
 );
 
-CREATE TABLE IF NOT EXISTS sammel_log (
-    quelle      TEXT,
-    schluessel  TEXT,
-    zeilen_roh  INTEGER,
-    zeilen_gespeichert INTEGER,
-    zeitpunkt   TEXT,
-    PRIMARY KEY (quelle, schluessel)
+CREATE TABLE IF NOT EXISTS load_log (
+    source      TEXT,
+    key         TEXT,
+    rows_raw    INTEGER,
+    rows_saved  INTEGER,
+    loaded_at   TEXT,
+    PRIMARY KEY (source, key)
 );
 """
 
@@ -67,17 +67,17 @@ def get_connection(path=None) -> sqlite3.Connection:
     return conn
 
 
-def already_loaded(conn, quelle: str, schluessel: str) -> bool:
+def already_loaded(conn, source: str, key: str) -> bool:
     cur = conn.execute(
-        "SELECT 1 FROM sammel_log WHERE quelle=? AND schluessel=?", (quelle, schluessel)
+        "SELECT 1 FROM load_log WHERE source=? AND key=?", (source, key)
     )
     return cur.fetchone() is not None
 
 
-def log_load(conn, quelle: str, schluessel: str, zeilen_roh: int, zeilen_gespeichert: int):
+def log_load(conn, source: str, key: str, rows_raw: int, rows_saved: int):
     conn.execute(
-        "INSERT OR REPLACE INTO sammel_log VALUES (?,?,?,?,?)",
-        (quelle, schluessel, int(zeilen_roh), int(zeilen_gespeichert),
+        "INSERT OR REPLACE INTO load_log VALUES (?,?,?,?,?)",
+        (source, key, int(rows_raw), int(rows_saved),
          datetime.now().isoformat(timespec="seconds")),
     )
     conn.commit()

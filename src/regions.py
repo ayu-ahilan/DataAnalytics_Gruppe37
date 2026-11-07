@@ -1,29 +1,31 @@
-"""Zuordnung von Bahnhoefen zu Sprachregionen.
+"""Assignment of stations to language regions.
 
-Grundregel: Zuordnung ueber den Kanton. In den zweisprachigen Kantonen
-(BE, FR, VS) wird fuer die wichtigsten Bahnhofsgemeinden die Mehrheitssprache
-ueber eine Ausnahmeliste korrigiert. Diese Vereinfachung wird in der
-Praesentation als Limitation erwaehnt.
+Basic rule: assignment via the canton. In the bilingual cantons
+(BE, FR, VS) the majority language of the most important station
+municipalities is corrected via an exception list. This simplification
+is mentioned as a limitation in the presentation.
 """
 import unicodedata
 
-KANTON_REGION = {
-    # Romandie
-    "GE": "Romandie", "VD": "Romandie", "NE": "Romandie", "JU": "Romandie",
-    "FR": "Romandie", "VS": "Romandie",
-    # Tessin (italienischsprachig)
-    "TI": "Tessin",
-    # Deutschschweiz (inkl. GR, wo Romanisch/Italienisch Minderheiten sind)
-    "ZH": "Deutschschweiz", "BE": "Deutschschweiz", "LU": "Deutschschweiz",
-    "UR": "Deutschschweiz", "SZ": "Deutschschweiz", "OW": "Deutschschweiz",
-    "NW": "Deutschschweiz", "GL": "Deutschschweiz", "ZG": "Deutschschweiz",
-    "SO": "Deutschschweiz", "BS": "Deutschschweiz", "BL": "Deutschschweiz",
-    "SH": "Deutschschweiz", "AR": "Deutschschweiz", "AI": "Deutschschweiz",
-    "SG": "Deutschschweiz", "GR": "Deutschschweiz", "AG": "Deutschschweiz",
-    "TG": "Deutschschweiz",
+GERMAN = "German-speaking"
+ROMANDY = "Romandy"
+TICINO = "Ticino"
+UNKNOWN = "Unknown"
+
+CANTON_REGION = {
+    # Romandy (French-speaking)
+    "GE": ROMANDY, "VD": ROMANDY, "NE": ROMANDY, "JU": ROMANDY, "FR": ROMANDY, "VS": ROMANDY,
+    # Ticino (Italian-speaking)
+    "TI": TICINO,
+    # German-speaking Switzerland (incl. GR, where Romansh/Italian are minorities)
+    "ZH": GERMAN, "BE": GERMAN, "LU": GERMAN, "UR": GERMAN, "SZ": GERMAN, "OW": GERMAN,
+    "NW": GERMAN, "GL": GERMAN, "ZG": GERMAN, "SO": GERMAN, "BS": GERMAN, "BL": GERMAN,
+    "SH": GERMAN, "AR": GERMAN, "AI": GERMAN, "SG": GERMAN, "GR": GERMAN, "AG": GERMAN,
+    "TG": GERMAN,
 }
 
-KANTON_NAME_ABK = {
+# Canton names as they may appear in the source data (German, French, Italian, English)
+CANTON_NAME_ABBR = {
     "zurich": "ZH", "zuerich": "ZH", "bern": "BE", "berne": "BE", "luzern": "LU",
     "uri": "UR", "schwyz": "SZ", "obwalden": "OW", "nidwalden": "NW", "glarus": "GL",
     "zug": "ZG", "fribourg": "FR", "freiburg": "FR", "solothurn": "SO",
@@ -32,28 +34,24 @@ KANTON_NAME_ABK = {
     "st. gallen": "SG", "sankt gallen": "SG", "graubunden": "GR", "graubuenden": "GR",
     "grisons": "GR", "aargau": "AG", "thurgau": "TG", "ticino": "TI", "tessin": "TI",
     "vaud": "VD", "waadt": "VD", "valais": "VS", "wallis": "VS", "neuchatel": "NE",
-    "neuenburg": "NE", "geneve": "GE", "genf": "GE", "jura": "JU",
+    "neuenburg": "NE", "geneve": "GE", "genf": "GE", "geneva": "GE", "jura": "JU",
 }
 
-# Ausnahmen in zweisprachigen Kantonen (Gemeindename -> Region)
-GEMEINDE_AUSNAHMEN = {
-    # Oberwallis: deutschsprachig
-    "brig-glis": "Deutschschweiz", "visp": "Deutschschweiz", "naters": "Deutschschweiz",
-    "leuk": "Deutschschweiz", "raron": "Deutschschweiz", "zermatt": "Deutschschweiz",
-    "tasch": "Deutschschweiz", "st. niklaus": "Deutschschweiz", "stalden (vs)": "Deutschschweiz",
-    "fiesch": "Deutschschweiz", "goms": "Deutschschweiz", "bitsch": "Deutschschweiz",
-    "steg-hohtenn": "Deutschschweiz", "gampel-bratsch": "Deutschschweiz",
-    "lalden": "Deutschschweiz", "salgesch": "Deutschschweiz", "ausserberg": "Deutschschweiz",
-    # Deutschfreiburg
-    "dudingen": "Deutschschweiz", "schmitten (fr)": "Deutschschweiz",
-    "wunnewil-flamatt": "Deutschschweiz", "kerzers": "Deutschschweiz",
-    "murten": "Deutschschweiz", "gurmels": "Deutschschweiz", "tafers": "Deutschschweiz",
-    # Berner Jura: franzoesischsprachig
-    "moutier": "Romandie", "saint-imier": "Romandie", "tavannes": "Romandie",
-    "tramelan": "Romandie", "reconvilier": "Romandie", "sonceboz-sombeval": "Romandie",
-    "la neuveville": "Romandie", "court": "Romandie", "corgemont": "Romandie",
-    "cortebert": "Romandie", "courtelary": "Romandie", "villeret": "Romandie",
-    "valbirse": "Romandie", "malleray": "Romandie",
+# Exceptions in bilingual cantons (municipality name -> region)
+MUNICIPALITY_EXCEPTIONS = {
+    # Upper Valais: German-speaking
+    "brig-glis": GERMAN, "visp": GERMAN, "naters": GERMAN, "leuk": GERMAN, "raron": GERMAN,
+    "zermatt": GERMAN, "tasch": GERMAN, "st. niklaus": GERMAN, "stalden (vs)": GERMAN,
+    "fiesch": GERMAN, "goms": GERMAN, "bitsch": GERMAN, "steg-hohtenn": GERMAN,
+    "gampel-bratsch": GERMAN, "lalden": GERMAN, "salgesch": GERMAN, "ausserberg": GERMAN,
+    # German-speaking part of Fribourg
+    "dudingen": GERMAN, "schmitten (fr)": GERMAN, "wunnewil-flamatt": GERMAN,
+    "kerzers": GERMAN, "murten": GERMAN, "gurmels": GERMAN, "tafers": GERMAN,
+    # Bernese Jura: French-speaking
+    "moutier": ROMANDY, "saint-imier": ROMANDY, "tavannes": ROMANDY, "tramelan": ROMANDY,
+    "reconvilier": ROMANDY, "sonceboz-sombeval": ROMANDY, "la neuveville": ROMANDY,
+    "court": ROMANDY, "corgemont": ROMANDY, "cortebert": ROMANDY, "courtelary": ROMANDY,
+    "villeret": ROMANDY, "valbirse": ROMANDY, "malleray": ROMANDY,
 }
 
 
@@ -64,16 +62,16 @@ def _norm(text) -> str:
     return text.strip().lower()
 
 
-def kanton_abk(kanton) -> str:
-    """Gibt das Kantonskuerzel zurueck (akzeptiert Kuerzel oder Namen)."""
-    k = str(kanton or "").strip()
-    if k.upper() in KANTON_REGION:
+def canton_abbr(canton) -> str:
+    """Returns the canton abbreviation (accepts abbreviations or names)."""
+    k = str(canton or "").strip()
+    if k.upper() in CANTON_REGION:
         return k.upper()
-    return KANTON_NAME_ABK.get(_norm(k), "")
+    return CANTON_NAME_ABBR.get(_norm(k), "")
 
 
-def assign_region(kanton, gemeinde) -> str:
-    g = _norm(gemeinde)
-    if g in GEMEINDE_AUSNAHMEN:
-        return GEMEINDE_AUSNAHMEN[g]
-    return KANTON_REGION.get(kanton_abk(kanton), "Unbekannt")
+def assign_region(canton, municipality) -> str:
+    m = _norm(municipality)
+    if m in MUNICIPALITY_EXCEPTIONS:
+        return MUNICIPALITY_EXCEPTIONS[m]
+    return CANTON_REGION.get(canton_abbr(canton), UNKNOWN)

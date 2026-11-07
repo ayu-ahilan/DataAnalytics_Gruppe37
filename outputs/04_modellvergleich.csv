@@ -1,4 +1,0 @@
-Modell,Accuracy,Precision,Recall,F1,ROC-AUC
-Baseline (immer pünktlich),0.945,0.0,0.0,0.0,0.5
-Logistische Regression,0.698,0.09,0.491,0.153,0.643
-Random Forest,0.792,0.114,0.407,0.178,0.68

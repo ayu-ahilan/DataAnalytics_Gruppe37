@@ -1,65 +1,75 @@
-# Wann und wo ist der Zug zu spät?
-**Zugverspätungen in der Schweiz im Regionen- und Tageszeitvergleich**
+# When and where are trains late?
+**Train delays in Switzerland compared across language regions and times of day**
 
-Data Analytics HS2026 (ZHAW), **Gruppe 37**: Marc Stump, Ayushan Ahilan
+Data Analytics HS2026 (ZHAW), **Group 37**: Marc Stump, Ayushan Ahilan
 
-## Forschungsfrage
-Welche Faktoren beeinflussen, ob ein Zug mit **≥ 3 Minuten Verspätung** ankommt (SBB-Definition), und unterscheiden sich diese Faktoren zwischen **Deutschschweiz und Romandie** sowie zwischen **Stosszeiten und Randzeiten**?
+## Research question
+Which factors influence whether a train arrives **≥ 3 minutes late** (SBB definition), and do these factors differ between **German-speaking Switzerland and Romandy** and between **peak and off-peak hours**?
 
-## Datenquellen (alle selbst über Web-APIs gesammelt)
-| # | Quelle | Zugriff | Verknüpfung |
+## Data sources (all collected by ourselves via web APIs)
+| # | Source | Access | Join |
 |---|---|---|---|
-| 1 | Ist-Daten v2 (opentransportdata.swiss) | CKAN-API `package_show` → Tages-CSV | — |
-| 2 | Service Points / atlas (opentransportdata.swiss) | CKAN-API → CSV | über `bpuic` (Haltestellennummer) |
-| 3 | Open-Meteo Historical Weather API | REST-API (JSON) | über `bpuic` + Stunde der Soll-Ankunft |
+| 1 | Actual data v2 (“Ist-Daten”, opentransportdata.swiss) | CKAN API `package_show` → daily CSV | — |
+| 2 | Service points / atlas (opentransportdata.swiss) | CKAN API → CSV | via `bpuic` (station number) |
+| 3 | Open-Meteo Historical Weather API | REST API (JSON) | via `bpuic` + hour of the scheduled arrival |
 
-## Abdeckung der Anforderungen
-| Anforderung | Wo |
+Collected period: 14–27 October 2026, 13 operating days (no file was published for 19 October 2026).
+
+## Coverage of the requirements
+| Requirement | Where |
 |---|---|
-| Datensammlung via Web-API | `src/collect_*.py`, Notebook 01 |
-| Integration von ≥ 2 Quellen inkl. Dokumentation (Schlüssel, Verluste) | Notebook 02 (Integrations-Trichter) |
-| Speicherung in SQLite + SQL-Abfragen aus Python | `src/db.py`, Notebooks 01–03 |
-| Nicht-grafische und grafische EDA | Notebook 03 |
-| Klassifikation mit Gruppenvergleich (Region, Tageszeit) | Notebook 04 |
-| Gütemasse (Accuracy, Precision, Recall, F1, ROC-AUC) und Interpretation | Notebook 04 |
-| **Bonus:** Geodaten/Karten | Notebook 05 |
-| **Bonus:** Chi²-Test, ANOVA, Korrelation (mit p-Werten) | Notebook 05 |
-| **Bonus:** k-Means-Clustering | Notebook 05 |
-| **Bonus:** öffentliches GitHub-Repo | https://github.com/ayu-ahilan/DataAnalytics_Gruppe37 |
-| Dokumentation KI-Nutzung | `docs/KI_Nutzung.md` |
+| Data collection via web API | `src/collect_*.py`, notebook 01 |
+| Integration of ≥ 2 sources incl. documentation (keys, losses) | notebook 02 (integration funnel) |
+| Storage in SQLite + SQL queries from Python | `src/db.py`, notebooks 01–03 |
+| Non-graphical and graphical EDA | notebook 03 |
+| Classification with group comparison (region, time of day) | notebook 04 |
+| Measures of fit (accuracy, precision, recall, F1, ROC-AUC) and interpretation | notebook 04 |
+| **Bonus:** geodata / maps | notebook 05 |
+| **Bonus:** chi-squared test, ANOVA, correlation (with p-values) | notebook 05 |
+| **Bonus:** k-means clustering | notebook 05 |
+| **Bonus:** public GitHub repository | https://github.com/ayu-ahilan/DataAnalytics_Gruppe37 |
+| Documentation of AI usage | `docs/AI_usage.md` |
 
-## Ordnerstruktur
+## Folder structure
 ```
 DataAnalytics_Gruppe37/
-├── run_collection.py        # startet die ganze Datensammlung
-├── requirements.txt         # benötigte Python-Pakete
-├── src/                     # wiederverwendbarer Code (Sammlung, DB, Features)
-├── notebooks/               # 01 Sammlung → 02 Integration → 03 EDA → 04 Modell → 05 Bonus
-├── data/                    # SQLite-Datenbank (wird erzeugt, nicht im Git)
-├── outputs/                 # Grafiken, Tabellen, Karten für die Präsentation
-└── docs/                    # KI-Dokumentation, Präsentationsnotizen
+├── run_collection.py        # runs the complete data collection
+├── requirements.txt         # required Python packages
+├── src/                     # reusable code (collection, database, features)
+├── notebooks/               # 01 collection → 02 integration → 03 EDA → 04 model → 05 bonus
+├── data/                    # SQLite database (generated, not in Git)
+├── outputs/                 # charts, tables and maps for the presentation
+└── docs/                    # AI documentation, presentation notes
 ```
 
-## Anleitung
-**1. Pakete installieren** (einmalig, im Terminal im Projektordner):
+## Database schema (`data/train_delays.sqlite`)
+| Table | Content | Key columns |
+|---|---|---|
+| `stops` | one row per train stop at a Swiss station (actual data) | `operating_day`, `trip_id`, `bpuic`, `arr_scheduled`, `arr_delay_min`, `arr_status`, `cancelled` |
+| `stations` | station master data | `bpuic`, `name`, `lat`, `lon`, `canton`, `region` |
+| `weather` | hourly weather for the 100 busiest stations | `bpuic`, `time`, `temperature`, `precipitation`, `snowfall`, `wind` |
+| `analysis` | integrated table for the analysis (created in notebook 02) | all of the above, one row per arrival |
+| `load_log` | log of the data collection (what was loaded when) | `source`, `key` |
+
+## How to run
+**1. Install the packages** (once, in the terminal inside the project folder):
 ```bash
-cd "~/Documents/5. Semester/DataAnalytics/DataAnalytics_Gruppe37"
 pip install -r requirements.txt
 ```
 
-**2. Daten sammeln** (ca. 30–90 Min., braucht ca. 1 GB freien Speicher):
+**2. Collect the data** (approx. 30–90 min, needs about 1 GB of free disk space):
 ```bash
 python run_collection.py
 ```
-Optionen: `--days 7` für weniger Tage, `--start 2026-10-05 --end 2026-10-18` für einen festen Zeitraum.
-Bei einem Abbruch einfach neu starten: bereits geladene Tage werden übersprungen.
+Options: `--days 7` for fewer days, `--start 2026-10-14 --end 2026-10-27` for a fixed period.
+After an interruption simply restart: days that are already loaded are skipped.
 
-**3. Notebooks der Reihe nach ausführen** (in VS Code oder mit `jupyter notebook`):
-`02_integration_sqlite` → `03_eda` → `04_modell_klassifikation` → `05_clustering_geo_tests`
+**3. Run the notebooks in order** (in VS Code or with `jupyter notebook`):
+`02_integration_sqlite` → `03_eda` → `04_classification_model` → `05_clustering_geo_tests`
 
-Die Grafiken für die Folien landen automatisch in `outputs/`.
+The charts for the slides are saved automatically in `outputs/`.
 
-## Hinweise
-- Die Ist-Daten-Tagesdateien bleiben nur ca. 7 Wochen online. Deshalb sollten die Daten **bald** gesammelt werden.
-- Die Wetterdaten (ERA5) erscheinen mit ca. 5 Tagen Verzögerung. Darum lädt das Skript nur Tage, die mindestens 6 Tage alt sind.
-- Quellenangabe (Lizenz opendata.swiss «BY»): Daten von opentransportdata.swiss sowie Open-Meteo.com (CC BY 4.0).
+## Notes
+- The daily actual data files are only available online for about 7 weeks. The data used here can therefore no longer be downloaded again; the database is submitted with the materials ZIP on Moodle.
+- The weather data (ERA5) is published with a delay of about 5 days. The script therefore only loads days that are at least 6 days old.
+- Attribution (licence opendata.swiss “BY”): data from opentransportdata.swiss and Open-Meteo.com (CC BY 4.0).

@@ -1,4 +1,4 @@
-"""Hilfsfunktionen fuer Web-API-Aufrufe und Downloads."""
+"""Helper functions for web API calls and downloads."""
 import time
 from pathlib import Path
 
@@ -10,54 +10,54 @@ HEADERS = {"User-Agent": USER_AGENT}
 
 
 def get_json(url, params=None, retries=3, timeout=120):
-    """GET-Request mit einfachem Retry; gibt das JSON zurueck."""
-    for versuch in range(1, retries + 1):
+    """GET request with a simple retry; returns the JSON."""
+    for attempt in range(1, retries + 1):
         try:
             r = requests.get(url, params=params, headers=HEADERS, timeout=timeout)
             r.raise_for_status()
             return r.json()
         except requests.RequestException as e:
-            if versuch == retries:
+            if attempt == retries:
                 raise
-            print(f"  Fehler ({e}); neuer Versuch in {5 * versuch}s ...")
-            time.sleep(5 * versuch)
+            print(f"  Error ({e}); retrying in {5 * attempt}s ...")
+            time.sleep(5 * attempt)
 
 
 def ckan_resources(package: str) -> list:
-    """Liest ueber die CKAN-API (package_show) alle Ressourcen eines Datensatzes."""
-    letzter_fehler = None
+    """Reads all resources of a dataset via the CKAN API (package_show)."""
+    last_error = None
     for base in CKAN_BASES:
         try:
             data = get_json(f"{base}/package_show", params={"id": package})
             resources = data.get("result", {}).get("resources", [])
             if resources:
                 return resources
-        except Exception as e:  # naechste Plattform probieren
-            letzter_fehler = e
-    raise RuntimeError(f"Datensatz '{package}' nicht gefunden ({letzter_fehler})")
+        except Exception as e:  # try the next platform
+            last_error = e
+    raise RuntimeError(f"Dataset '{package}' not found ({last_error})")
 
 
 def resource_url(res: dict) -> str:
     return res.get("download_url") or res.get("url") or ""
 
 
-def download(url: str, ziel: Path, chunk=1 << 20) -> Path:
-    """Laedt eine (grosse) Datei gestreamt herunter und zeigt den Fortschritt."""
-    ziel = Path(ziel)
-    ziel.parent.mkdir(parents=True, exist_ok=True)
-    tmp = ziel.with_suffix(ziel.suffix + ".part")
+def download(url: str, target: Path, chunk=1 << 20) -> Path:
+    """Downloads a (large) file as a stream and shows the progress."""
+    target = Path(target)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    tmp = target.with_suffix(target.suffix + ".part")
     with requests.get(url, headers=HEADERS, stream=True, timeout=300) as r:
         r.raise_for_status()
         total = int(r.headers.get("Content-Length", 0))
-        geladen, naechste_meldung = 0, 0
+        loaded, next_report = 0, 0
         with open(tmp, "wb") as f:
             for block in r.iter_content(chunk_size=chunk):
                 f.write(block)
-                geladen += len(block)
-                if geladen >= naechste_meldung:
+                loaded += len(block)
+                if loaded >= next_report:
                     if total:
-                        print(f"  {geladen / 1e6:,.0f} / {total / 1e6:,.0f} MB", end="\r")
-                    naechste_meldung += 50 * chunk
-    tmp.replace(ziel)
-    print(f"  heruntergeladen: {ziel.name} ({geladen / 1e6:,.0f} MB)        ")
-    return ziel
+                        print(f"  {loaded / 1e6:,.0f} / {total / 1e6:,.0f} MB", end="\r")
+                    next_report += 50 * chunk
+    tmp.replace(target)
+    print(f"  downloaded: {target.name} ({loaded / 1e6:,.0f} MB)        ")
+    return target
