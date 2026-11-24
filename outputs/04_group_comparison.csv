@@ -1,5 +1,5 @@
-Group,n_train,n_test,Share late (test),Accuracy,Precision,Recall,F1,ROC-AUC
-German-speaking,223517,97944,0.051,0.826,0.116,0.365,0.176,0.681
-Romandy,43995,19541,0.079,0.745,0.135,0.41,0.203,0.65
-Peak,73605,21178,0.071,0.886,0.116,0.093,0.103,0.585
-Off-peak,204419,100933,0.052,0.767,0.111,0.498,0.182,0.696
+Group,n_train,n_test,Share late (test),ROC-AUC,PR-AUC
+German-speaking,300000,174581,0.078,0.748,0.219
+Romandy,177110,36160,0.101,0.657,0.174
+Peak,264209,53213,0.141,0.684,0.269
+Off-peak,300000,165408,0.062,0.718,0.164

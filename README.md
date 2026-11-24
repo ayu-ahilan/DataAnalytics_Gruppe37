@@ -13,7 +13,7 @@ Which factors influence whether a train arrives **≥ 3 minutes late** (SBB defi
 | 2 | Service points / atlas (opentransportdata.swiss) | CKAN API → CSV | via `bpuic` (station number) |
 | 3 | Open-Meteo Historical Weather API | REST API (JSON) | via `bpuic` + hour of the scheduled arrival |
 
-Collected period: 14–27 October 2026, 13 operating days (no file was published for 19 October 2026).
+Collected period: **5 October – 15 November 2026, six full weeks (42 operating days)** – 6,731,306 train stops, of which 1,302,091 arrivals at the 100 busiest stations are used for the analysis.
 
 ## Coverage of the requirements
 | Requirement | Where |
@@ -22,8 +22,9 @@ Collected period: 14–27 October 2026, 13 operating days (no file was published
 | Integration of ≥ 2 sources incl. documentation (keys, losses) | notebook 02 (integration funnel) |
 | Storage in SQLite + SQL queries from Python | `src/db.py`, notebooks 01–03 |
 | Non-graphical and graphical EDA | notebook 03 |
-| Classification with group comparison (region, time of day) | notebook 04 |
-| Measures of fit (accuracy, precision, recall, F1, ROC-AUC) and interpretation | notebook 04 |
+| Classification with group comparison (region, time of day) | notebook 04 (rolling time-series cross-validation, 4 models, group models, logit with interaction) |
+| Knock-on delays (delay at the previous stop via SQL window function `LAG`) | notebooks 02–04 |
+| Measures of fit (accuracy, precision, recall, F1, ROC-AUC, PR-AUC, tuned threshold) and interpretation | notebook 04 |
 | **Bonus:** geodata / maps | notebook 05 |
 | **Bonus:** chi-squared test, ANOVA, correlation (with p-values) | notebook 05 |
 | **Bonus:** k-means clustering | notebook 05 |
@@ -35,7 +36,7 @@ Collected period: 14–27 October 2026, 13 operating days (no file was published
 DataAnalytics_Gruppe37/
 ├── run_collection.py        # runs the complete data collection
 ├── requirements.txt         # required Python packages
-├── src/                     # reusable code (collection, database, features)
+├── src/                     # reusable code (collection, database, features, slide charts)
 ├── notebooks/               # 01 collection → 02 integration → 03 EDA → 04 model → 05 bonus
 ├── data/                    # SQLite database (generated, not in Git)
 ├── outputs/                 # charts, tables and maps for the presentation
@@ -48,7 +49,7 @@ DataAnalytics_Gruppe37/
 | `stops` | one row per train stop at a Swiss station (actual data) | `operating_day`, `trip_id`, `bpuic`, `arr_scheduled`, `arr_delay_min`, `arr_status`, `cancelled` |
 | `stations` | station master data | `bpuic`, `name`, `lat`, `lon`, `canton`, `region` |
 | `weather` | hourly weather for the 100 busiest stations | `bpuic`, `time`, `temperature`, `precipitation`, `snowfall`, `wind` |
-| `analysis` | integrated table for the analysis (created in notebook 02) | all of the above, one row per arrival |
+| `analysis` | integrated table for the analysis (created in notebook 02) | all of the above, one row per arrival, plus `prev_dep_delay` (departure delay of the same train at its previous stop) |
 | `load_log` | log of the data collection (what was loaded when) | `source`, `key` |
 
 ## How to run
@@ -61,15 +62,15 @@ pip install -r requirements.txt
 ```bash
 python run_collection.py
 ```
-Options: `--days 7` for fewer days, `--start 2026-10-14 --end 2026-10-27` for a fixed period.
+Options: `--days 7` for fewer days, `--start 2026-10-05 --end 2026-11-15` for a fixed period (the period used in this project).
 After an interruption simply restart: days that are already loaded are skipped.
 
 **3. Run the notebooks in order** (in VS Code or with `jupyter notebook`):
 `02_integration_sqlite` → `03_eda` → `04_classification_model` → `05_clustering_geo_tests`
 
-The charts for the slides are saved automatically in `outputs/`.
+The charts are saved automatically in `outputs/`. The charts for the slides are created with `python -m src.slide_charts`.
 
 ## Notes
-- The daily actual data files are only available online for about 7 weeks. The data used here can therefore no longer be downloaded again; the database is submitted with the materials ZIP on Moodle.
+- The daily actual data files are only available online for about 7 weeks. The data used here can therefore no longer be downloaded again; the database (≈ 1.6 GB) is submitted with the materials ZIP on Moodle.
 - The weather data (ERA5) is published with a delay of about 5 days. The script therefore only loads days that are at least 6 days old.
 - Attribution (licence opendata.swiss “BY”): data from opentransportdata.swiss and Open-Meteo.com (CC BY 4.0).

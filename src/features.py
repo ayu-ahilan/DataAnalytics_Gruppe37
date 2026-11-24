@@ -51,6 +51,11 @@ def add_features(df: pd.DataFrame) -> pd.DataFrame:
     top_operators = df["operator"].value_counts().head(6).index
     df["operator_group"] = df["operator"].where(df["operator"].isin(top_operators), "Other")
 
+    # knock-on delay: delay the train already had when leaving the previous stop
+    if "prev_dep_delay" in df:
+        df["delay_gained"] = df["arr_delay_min"] - df["prev_dep_delay"]
+        df["late_before"] = (df["prev_dep_delay"] >= config.LATE_THRESHOLD_MIN).astype(int)
+
     size = df.groupby("bpuic")["bpuic"].transform("size")
     df["log_station_size"] = np.log(size)
     return df

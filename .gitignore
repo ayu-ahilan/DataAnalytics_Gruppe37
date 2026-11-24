@@ -5,3 +5,6 @@ __pycache__/
 *.part
 .DS_Store
 ~$*
+intern/
+Briefing_*.docx
+*.pptx

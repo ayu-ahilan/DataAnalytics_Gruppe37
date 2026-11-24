@@ -6,7 +6,7 @@
 | Tool | Used for | Who / when |
 |---|---|---|
 | Claude in the browser (claude.ai, Cowork) | summarising the Moodle requirements, finding a topic, project structure, first draft of all scripts and notebooks, research on the data sources | Ayushan, 3 Nov 2026 |
-| Claude Code (desktop app, working directly in the project folder) | running and monitoring the data collection, running the notebooks with real data, writing the interpretations, adapting the presentation outline, creating and checking the concept slides, setting up the Git repository, translating all deliverables into English | Ayushan, 3–7 Nov 2026 |
+| Claude Code (desktop app, working directly in the project folder) | running and monitoring the data collection, running the notebooks with real data, writing the interpretations, adapting the presentation outline, creating and checking the concept slides, setting up the Git repository, translating all deliverables into English, extending the data to six weeks and improving the analysis | Ayushan, 3–24 Nov 2026 |
 
 *(Add further tools here, e.g. GitHub Copilot, if they are used later.)*
 
@@ -28,6 +28,12 @@
 - After the lecturers confirmed that all deliverables must be in English, translated the slides, speaker notes, charts, notebooks, code comments, README and documents.
 - Renamed the database tables and columns to English (e.g. `halte` → `stops`, `verspaetet` → `late`) and re-ran all notebooks, so that the outputs are in English as well.
 
+**Phase 4 – extension and improvement (Claude Code, 24 Nov 2026)**
+- Extended the data from 13 days to six full weeks (5 Oct – 15 Nov 2026, 42 days, 6.7 M train stops).
+- Added the knock-on delay: a SQL window function (`LAG`) looks up the departure delay of the same train at its previous stop.
+- Improved the modelling: gradient boosting as a fourth model, rolling time-series cross-validation over the weeks, PR-AUC, a decision threshold chosen on a validation week, cluster-robust standard errors in the logit models and a second logit model with the inherited delay.
+- Re-ran all notebooks, rewrote the interpretations, updated the slides and wrote an internal briefing for the presentation.
+
 ## Advantages
 - Very fast start: a working project structure in a short time.
 - Helpful for researching the API endpoints and for handling special cases (e.g. 7-/9-digit BPUIC, SLOID, daylight saving time change).
@@ -45,6 +51,11 @@
 - The AI first wrote everything in German because we communicated with it in German; the language requirement of the course had to be clarified by us with the lecturers.
 
 ## Where something did not work
+- **Extension to six weeks (24 Nov 2026):**
+  - The temporary working folder of the AI had been cleared between sessions; helper scripts (chart script, slide files) were lost and had to be reconstructed. The chart script is now part of the repository (`src/slide_charts.py`).
+  - PowerPoint had re-saved the exported slide file and renamed the embedded images, so the first automated update of the PowerPoint file produced a broken file; the validation caught it before it was used.
+  - With six weeks some results changed: the peak-hour effect in Romandy is not zero (as it looked with two weeks) but much weaker (odds ratio 1.19 vs. 1.79), and k-means now finds three clusters instead of two. The interpretations were rewritten accordingly → results based on short periods should be treated with caution.
+  - The CKAN API again answered with 403 Forbidden; the script fell back to opendata.swiss automatically.
 - **Data collection (3 Nov 2026, with Claude Code):**
   - The first run stopped after 3 days; a second run was terminated when the Claude session that had started it was closed. Thanks to “skip days that are already loaded”, the run could simply be restarted each time.
   - The CKAN API of opentransportdata.swiss temporarily answered with **403 Forbidden** (probably throttling after several GB of downloads). The script retries requests automatically; the block was deliberately not circumvented. The API was still blocked when notebook 01 was re-run on 7 Nov 2026, which is why its first cell shows “API not reachable”.

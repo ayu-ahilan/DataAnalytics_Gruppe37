@@ -1,4 +1,6 @@
-Model,Accuracy,Precision,Recall,F1,ROC-AUC
-Baseline (always on time),0.945,0.0,0.0,0.0,0.5
-Logistic regression,0.698,0.09,0.491,0.153,0.643
-Random forest,0.801,0.115,0.388,0.178,0.679
+Model,Accuracy,Precision,Recall,F1,ROC-AUC,PR-AUC
+Baseline (always on time),0.918,0.0,0.0,0.0,0.5,0.082
+Logistic regression,0.508,0.121,0.8,0.21,0.698,0.16
+Random forest,0.706,0.159,0.606,0.252,0.72,0.189
+Gradient boosting,0.682,0.155,0.654,0.251,0.729,0.201
+Gradient boosting (tuned threshold 0.61),0.817,0.203,0.422,0.274,0.729,0.201

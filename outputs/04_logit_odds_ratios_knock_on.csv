@@ -1,0 +1,17 @@
+,Odds ratio,CI 2.5%,CI 97.5%,p-value
+Intercept,0.0003,0.0002,0.0005,0.0
+"C(region, Treatment('German-speaking'))[T.Romandy]",1.2809,1.1719,1.4001,0.0
+"C(train_type_group, Treatment('S-Bahn'))[T.InterCity]",2.2261,2.0377,2.4318,0.0
+"C(train_type_group, Treatment('S-Bahn'))[T.InterRegio]",1.9718,1.8393,2.1137,0.0
+"C(train_type_group, Treatment('S-Bahn'))[T.International]",1.5386,1.2116,1.9539,0.0004
+"C(train_type_group, Treatment('S-Bahn'))[T.Other]",3.1421,2.2302,4.4267,0.0
+"C(train_type_group, Treatment('S-Bahn'))[T.Regio]",1.1772,1.0608,1.3064,0.0021
+"C(train_type_group, Treatment('S-Bahn'))[T.RegioExpress]",2.4966,2.2685,2.7477,0.0
+peak,1.1674,1.1045,1.2339,0.0
+"C(region, Treatment('German-speaking'))[T.Romandy]:peak",0.7957,0.7062,0.8967,0.0002
+weekend,0.8255,0.7766,0.8775,0.0
+precipitation,1.2081,1.1676,1.25,0.0
+temperature,0.9834,0.9777,0.9891,0.0
+wind,1.0025,0.9984,1.0066,0.2264
+log_station_size,1.1604,1.1198,1.2024,0.0
+prev_dep_delay,4.2752,4.1822,4.3704,0.0
